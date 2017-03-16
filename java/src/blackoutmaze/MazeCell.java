@@ -30,9 +30,9 @@ public class MazeCell
     //
     // To avoid having to define object mappers, we rely on the fact that Jackson will
     // call 'setCurrentCell' and provide the map that really defines the cell.  We'll
-    // cheat a bit as well and use that map on 'get' functions ... as Pythonic as that
-    // may be ...
-    // @TODO - come to your senses ...
+    // cheat a bit as well and use that map directly on all 'get' functions. This
+    // creates a bit of a facade (hiding the map) but can be revisited later.
+    // @TODO - look at defining a mapper or ??? to see how else we can do this.
 
     private final String NORTH = "NORTH";
     private final String SOUTH = "SOUTH";
