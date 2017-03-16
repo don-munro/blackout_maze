@@ -52,7 +52,6 @@ class DarkMaze(object):
 
         jmp_url = "http://www.epdeveloperchallenge.com/api/jump?mazeGuid=%s&x=%i&y=%i" % \
                  (self.maze_guid, x, y)
-        current_url = "http://www.epdeveloperchallenge.com/api/currentCell?%s" % (self.maze_guid)
         try:
             response = requests.post(jmp_url).json()
         except Exception as exc:
@@ -60,7 +59,7 @@ class DarkMaze(object):
 
         return response.get('currentCell')
 
-    def explore2(self):
+    def explore(self):
 
         start_cell = self.start_cell
         try:
@@ -99,27 +98,12 @@ class DarkMaze(object):
 def main():
 
     maze = DarkMaze()
-    node = maze.explore2()
+    node = maze.explore()
     if node:
         print node['note']
     else:
         print "Ouch - failed to find your way out"
-    # directions = ('north', 'south', 'east', 'west')
-    #
-    # try:
-    #     while not current_cell.get('atEnd'):
-    #         unexplored = [dir for dir in directions
-    #                       if current_cell.get(dir) == 'UNEXPLORED']
-    #         if unexplored.count() > 1:
-    #             jump_point = current_cell
-    #
-    #         for direction in unexplored:
-    #             print direction
-    #             current_cell = move_one(maze_guid, direction)
-    # except Exception as exc:
-    #     exc = exc
-    #
-    #     print current_cell
+
 
 if __name__ == '__main__':
     main()
