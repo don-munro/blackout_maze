@@ -1,7 +1,9 @@
 package blackoutmaze;
 
 /**
- * Created by donmunro on 2017-02-28.
+ * Copyright 2017 Don Munro don.ian.scott.munro@gmail.com
+ * Licensed under the GNU LGPL
+ * License details here: http://www.gnu.org/licenses/lgpl-3.0.txt
  */
 
 import javax.ws.rs.client.Entity;
